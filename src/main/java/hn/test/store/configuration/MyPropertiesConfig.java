@@ -20,9 +20,11 @@ public class MyPropertiesConfig {
 	@Value("${server.port}")
 	private String port;
 	
-	@Value("${certificate}")
-	private String certificate;
-
+	@Value("${urlallProducts}")
+	private String urlallProducts;
+	
+	@Value("${urlProductsById}")
+	private String urlProductsById;
 
 
 }

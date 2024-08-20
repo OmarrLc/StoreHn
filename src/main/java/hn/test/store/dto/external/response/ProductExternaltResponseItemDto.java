@@ -14,9 +14,9 @@ import lombok.ToString;
 @ToString
 public class ProductExternaltResponseItemDto {
 
-	private Integer id;
+	private Long id;
 	private String title;
-	private Long price;
+	private Double price;
 	private String description;
 	private String category;
 	private String image;

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
-@Table(name="PRPDUCT")
+@Table(name="PRODUCT")
 public class ProductEntity implements Serializable{
 
 	/**
@@ -33,12 +33,12 @@ public class ProductEntity implements Serializable{
 	private String productTitle;
 	
 	@Column(name = "PRODUCT_PRICE", nullable = false)
-	private String productPrice;
+	private Double productPrice;
 	
 	@Column(name = "PRODUCT_CATEGORY", nullable = false)
 	private String productCategory;
 	
-	@Column(name = "PRODUCT_DESCRIPTION", nullable = false)
+	@Column(name = "PRODUCT_DESCRIPTION", nullable = false, length = 1024)
 	private String productDescription;
 	
 	@Column(name = "PRODUCT_IMAGE", nullable = false)

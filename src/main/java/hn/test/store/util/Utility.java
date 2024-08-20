@@ -1,14 +1,18 @@
 package hn.test.store.util;
 
-import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Base64;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import hn.test.store.dto.external.response.ProductExternaltResponseItemDto;
+import hn.test.store.entity.ProductEntity;
+import hn.test.store.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Component
@@ -16,6 +20,9 @@ import lombok.extern.slf4j.Slf4j;
 public class Utility {
 	public static final String MENSAJE_EXCEPCION_1 = "No se puede codificar cadena de caracteres nula o vacia";
 	public static final String MENSAJE_EXCEPCION_2 = "Error codificando base64: ";
+	
+	@Autowired
+	ProductRepository productRepo;
 	
 	public String base64Decode3R(String strDecode) {
 		try {
@@ -31,13 +38,32 @@ public class Utility {
 		}
 		return null;
 	}
+	
+	public List<ProductEntity> mapToProductEntities(List<ProductExternaltResponseItemDto> dtoList) {
+        return dtoList.stream().map(dto -> {
+            ProductEntity entity = new ProductEntity();
+            
+            entity.setProductId(dto.getId());
+            entity.setProductTitle(dto.getTitle());
+            entity.setProductPrice(dto.getPrice());
+            entity.setProductCategory(dto.getCategory());
+            entity.setProductDescription(dto.getDescription());
+            entity.setProductImage(dto.getImage());
+            entity.setProductRating(String.valueOf(dto.getRating()));
 
-	public X509Certificate loadCertificateFromPem(String pem) throws CertificateException {
-		String base64 = pem.replace("-----BEGIN CERTIFICATE-----", "").replace("-----END CERTIFICATE-----", "")
-				.replaceAll("\\s", "");
+            entity.setRegisterDate(LocalDate.now().toString());
+            entity.setRegisterTime(LocalTime.now().toString());
 
-		byte[] decoded = Base64.getDecoder().decode(base64);
-		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		return (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(decoded));
+            entity.setStatusRegister("ACTIVE");
+
+            return entity;
+        }).collect(Collectors.toList());
+    }
+	
+	public Boolean saveAllProduct(List<ProductEntity> products) {
+		
+		List<ProductEntity> result = productRepo.saveAll(products);
+		
+		return !result.isEmpty();
 	}
 }

@@ -30,7 +30,7 @@ public class OrderPaymentEntity implements Serializable{
 	private Long orderPaymentId;
 	
 	@Column(name = "CUSTOMER_ORDER_ID", nullable = false)
-	private Long customerOrderId;
+	private Long customerOrderEntityId;
 
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;

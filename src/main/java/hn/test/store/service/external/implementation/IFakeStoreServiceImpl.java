@@ -3,6 +3,7 @@ package hn.test.store.service.external.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import hn.test.store.configuration.MyPropertiesConfig;
 import hn.test.store.dto.external.response.ProductExternaltResponseItemDto;
 import hn.test.store.service.external.IFakeStoreService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class IFakeStoreServiceImpl implements IFakeStoreService {
 
+	@Autowired
+	MyPropertiesConfig myProperties;
+	
 	private final RestTemplate restTemplate;
 
 	public IFakeStoreServiceImpl(@Qualifier("restTemplate") RestTemplate restTemplate) {
@@ -28,7 +33,7 @@ public class IFakeStoreServiceImpl implements IFakeStoreService {
 
 	@Override
 	public List<ProductExternaltResponseItemDto> getAllProducts() {
-		String url = "https://fakestoreapi.com/products";
+		String url = myProperties.getUrlallProducts().trim();
 
 		List<ProductExternaltResponseItemDto> response = new ArrayList<>();
 
@@ -58,7 +63,7 @@ public class IFakeStoreServiceImpl implements IFakeStoreService {
 
 	@Override
 	public ProductExternaltResponseItemDto getProductById(Integer productId) {
-		String url = "https://fakestoreapi.com/products/" + productId.toString();
+		String url = myProperties.getUrlProductsById().trim() + productId.toString();
 
 		ProductExternaltResponseItemDto response = new ProductExternaltResponseItemDto();
 

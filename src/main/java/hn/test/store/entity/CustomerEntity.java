@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
-@Table(name="CLIENT")
-public class ClientEntity implements Serializable{
+@Table(name="CUSTOMER")
+public class CustomerEntity implements Serializable{
 
 	/**
 	 * 
@@ -26,11 +26,11 @@ public class ClientEntity implements Serializable{
 	private static final long serialVersionUID = -7703741449505538993L;
 	
 	@Id
-	@Column(name = "CLIENT_ID", nullable = false)
-	private Long clienteId;
+	@Column(name = "CUSTOMER_ID", nullable = false)
+	private Long customerId;
 	
-	@Column(name = "CLIENT_NAME", nullable = false)
-	private String clienteName;
+	@Column(name = "CUSTOMER_NAME", nullable = false)
+	private String customerName;
 	
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;

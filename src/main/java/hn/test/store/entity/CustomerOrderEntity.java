@@ -27,10 +27,10 @@ public class CustomerOrderEntity implements Serializable{
 
 	@Id
 	@Column(name = "CUSTOMER_ORDER_ID", nullable = false)
-	private Long customerOrderEntityId;
+	private Long customerOrderId;
 	
-	@Column(name = "CLIENT_ID", nullable = false)
-	private Long clientId;
+	@Column(name = "CUSTOMER_ID", nullable = false)
+	private Long customerId;
 	
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;

@@ -14,12 +14,12 @@ public class OpenApiConfig {
 	@Bean
 	OpenAPI customOpenAPI() {
 		return new OpenAPI().components(new Components()).info(new Info()
-				.title("Servicios de Liquidacion a Comercios Por Compras POS con QR - Modulo Cierres BASA")
+				.title("API´s Store Hn")
 				.description(
-						"Documentacion Servicio BA-cierre-compras-qr-pos Service Documentation")
+						"")
 				.contact(new Contact().name(
-						"Infatlan Equipo Soluciones| Developer Edison Ordoñez | Carlos Lopez")
-						.url("").email("@"))
+						"Omar Lopez")
+						.url("").email("omar.colg97@gmail.com"))
 				.version("v1.0.0"));
 	}
 }
