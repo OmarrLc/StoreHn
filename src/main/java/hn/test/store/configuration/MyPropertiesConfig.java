@@ -19,6 +19,9 @@ public class MyPropertiesConfig {
 	
 	@Value("${server.port}")
 	private String port;
+	
+	@Value("${certificate}")
+	private String certificate;
 
 
 
