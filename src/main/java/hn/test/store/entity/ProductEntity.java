@@ -44,6 +44,9 @@ public class ProductEntity implements Serializable{
 	@Column(name = "PRODUCT_IMAGE", nullable = false)
 	private String productImage;
 	
+	@Column(name = "PRODUCT_RATING", nullable = false)
+	private String productRating;
+	
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;
 	
