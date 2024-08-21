@@ -33,6 +33,7 @@ public class StoreHn  implements CommandLineRunner {
 		
 		log.info("Backend microservices of project " + myProperties.getApplicatioName() + " Started in Environment " + myProperties.getProfileActive() + " Accros the port: " + myProperties.getPort());
 	
+		/*Initial loading of Customers in the database*/
 		util.customerLoad();
 	}
 

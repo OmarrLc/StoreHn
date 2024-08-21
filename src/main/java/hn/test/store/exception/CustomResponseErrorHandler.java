@@ -21,11 +21,11 @@ public class CustomResponseErrorHandler implements ResponseErrorHandler {
 	@Override
 	public void handleError(@NonNull ClientHttpResponse response) throws IOException {
 		if (response.getStatusCode().is4xxClientError()) {
-			log.error("Error del cliente: " + response.getStatusCode());
+			log.error("Client Error: " + response.getStatusCode());
 		} else if (response.getStatusCode().is5xxServerError()) {
-			log.error("Error del servidor: " + response.getStatusCode());
+			log.error("Server Error: " + response.getStatusCode());
 		} else {
-			log.error("Otro tipo de error: " + response.getStatusCode());
+			log.error("Error: " + response.getStatusCode());
 		}
 	}
 }

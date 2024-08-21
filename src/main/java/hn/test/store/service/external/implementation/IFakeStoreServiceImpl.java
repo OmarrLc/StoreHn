@@ -38,8 +38,7 @@ public class IFakeStoreServiceImpl implements IFakeStoreService {
 		List<ProductExternaltResponseItemDto> response = new ArrayList<>();
 
 		try {
-			ResponseEntity<List<ProductExternaltResponseItemDto>> responseRest = restTemplate.exchange(url, // URL de tu
-																											// API
+			ResponseEntity<List<ProductExternaltResponseItemDto>> responseRest = restTemplate.exchange(url,
 					HttpMethod.GET, null, new ParameterizedTypeReference<List<ProductExternaltResponseItemDto>>() {
 					});
 
@@ -68,8 +67,7 @@ public class IFakeStoreServiceImpl implements IFakeStoreService {
 		ProductExternaltResponseItemDto response = new ProductExternaltResponseItemDto();
 
 		try {
-			ResponseEntity<ProductExternaltResponseItemDto> responseRest = restTemplate.exchange(url, // URL de tu
-																											// API
+			ResponseEntity<ProductExternaltResponseItemDto> responseRest = restTemplate.exchange(url,
 					HttpMethod.GET, null, new ParameterizedTypeReference<ProductExternaltResponseItemDto>() {
 					});
 
