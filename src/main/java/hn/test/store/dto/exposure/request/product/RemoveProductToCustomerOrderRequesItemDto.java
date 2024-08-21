@@ -14,7 +14,7 @@ import lombok.ToString;
 @Data
 @Builder
 @ToString
-public class RemoveProductToCustomerOrderIRequesttemDto {
+public class RemoveProductToCustomerOrderRequesItemDto {
 
 	private Long orderDetailId;
 	List<AdditionalFieldItemDto> additionalFieldColection;

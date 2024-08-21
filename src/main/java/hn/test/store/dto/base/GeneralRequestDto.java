@@ -25,6 +25,9 @@ public class GeneralRequestDto {
 	@Schema(description = "Transaction Id", example = "1")
 	private String transactionId;
 	
+	@Schema(description = "User Request", example = "USER_TEST")
+	private String userRequest;
+	
 	List<AdditionalFieldItemDto> additionalFieldColection;
 
 }

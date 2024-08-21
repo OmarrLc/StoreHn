@@ -1,18 +1,15 @@
 package hn.test.store.service.exposure;
 
+import hn.test.store.dto.exposure.request.product.AddProductToCustomerOrderRestRequestDto;
+import hn.test.store.dto.exposure.request.product.RemoveProductToCustomerOrderRestRequestDto;
+import hn.test.store.dto.exposure.response.product.AddProductToCustomerOrderRestResponseIDto;
+import hn.test.store.dto.exposure.response.product.RemoveProductToCustomerOrderRestResponseDto;
+
 public interface IProductService {
 
-	Boolean createAllProducts();
+	public Boolean createAllProducts();
 	
-	/*
-	Boolean creatProduct( ProductEntity product );
-
-	List<ProductExternaltResponseItemDto> getAllProducts();
+	public AddProductToCustomerOrderRestResponseIDto addProductToCustomerOrder(AddProductToCustomerOrderRestRequestDto request);
 	
-	ProductExternaltResponseItemDto getProductById(Integer productId);
-
-	ProductExternaltResponseItemDto updateProduct(Integer productId);
-	
-	Boolean deleteProduct(Integer productId);*/
-	
+	public RemoveProductToCustomerOrderRestResponseDto removeProductToCustomerOrder(RemoveProductToCustomerOrderRestRequestDto request);
 }

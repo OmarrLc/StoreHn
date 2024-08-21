@@ -15,5 +15,5 @@ import lombok.ToString;
 public class AddProductToCustomerOrderRestResponseIDto {
 
 	private GeneralResponseDto generalResponse;
-	private AddProductToCustomerOrderResponseItemDto dddProductToCustomerOrder;
+	private AddProductToCustomerOrderResponseItemDto adddProductToCustomerOrder;
 }

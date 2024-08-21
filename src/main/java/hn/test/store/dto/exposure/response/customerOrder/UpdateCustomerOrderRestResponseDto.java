@@ -1,8 +1,5 @@
 package hn.test.store.dto.exposure.response.customerOrder;
 
-import java.util.List;
-
-import hn.test.store.dto.base.AdditionalFieldItemDto;
 import hn.test.store.dto.base.GeneralResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +15,4 @@ import lombok.ToString;
 public class UpdateCustomerOrderRestResponseDto {
 
 	private GeneralResponseDto generalResponse;
-	List<AdditionalFieldItemDto> additionalFieldColection;
 }

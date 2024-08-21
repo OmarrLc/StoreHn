@@ -1,5 +1,6 @@
 package hn.test.store.dto.exposure.response.customerOrder;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import hn.test.store.dto.base.AdditionalFieldItemDto;
@@ -17,10 +18,9 @@ import lombok.ToString;
 @ToString
 public class ViewCustomerOrderDetailResponseItemDto {
 	
-	private Long customerId;
 	private Long customerOrderId;
 	private List<ViewProductDto> productColection;
-	private Double customerOrderTotal;
+	private BigDecimal customerOrderTotal;
 	List<AdditionalFieldItemDto> additionalFieldColection;
 
 }

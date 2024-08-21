@@ -1,6 +1,7 @@
 package hn.test.store.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,6 +32,18 @@ public class OrderPaymentEntity implements Serializable{
 	
 	@Column(name = "CUSTOMER_ORDER_ID", nullable = false)
 	private Long customerOrderEntityId;
+	
+	@Column(name = "METHOD_PAYMENT", nullable = false)
+	private String methodPayment;
+	
+	@Column(name = "AMOUNT_TOTAL_ORDER", nullable = false)
+	private BigDecimal amountTotalOrder;
+	
+	@Column(name = "AMOUNT_TOTAL_RECEIVED", nullable = false)
+	private BigDecimal amountTotalReceived;
+	
+	@Column(name = "EXCHANGE", nullable = false)
+	private BigDecimal exchange;
 
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;

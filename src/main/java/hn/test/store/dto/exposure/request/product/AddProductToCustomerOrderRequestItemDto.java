@@ -18,5 +18,6 @@ public class AddProductToCustomerOrderRequestItemDto {
 
 	private Long customerOrderId;
 	private Long productId;
+	private Long quantity;
 	List<AdditionalFieldItemDto> additionalFieldColection;
 }

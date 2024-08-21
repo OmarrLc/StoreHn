@@ -15,5 +15,5 @@ import lombok.ToString;
 public class RemoveProductToCustomerOrderRestRequestDto {
 
 	private GeneralRequestDto generalRequest;
-	private RemoveProductToCustomerOrderRestRequestDto removeProductToCustomerOrder;
+	private RemoveProductToCustomerOrderRequesItemDto removeProductToCustomerOrder;
 }

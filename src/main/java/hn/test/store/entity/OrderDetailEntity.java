@@ -35,6 +35,9 @@ public class OrderDetailEntity implements Serializable{
 	@Column(name = "PRODUCT_ID", nullable = false)
 	private Long productId;
 	
+	@Column(name = "QUANTITY", nullable = false)
+	private Long quantity;
+	
 	@Column(name = "REGISTER_DATE", nullable = false)
 	private String registerDate;
 	

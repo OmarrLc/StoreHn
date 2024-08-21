@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 public class GeneralResponseDto {
 	
-	private String internalTransactionCode;
+	private Long internalTransactionCode;
 	private String uniqueResponseCode;
 	private String responseCode;
 	private String descriptionResponse;
