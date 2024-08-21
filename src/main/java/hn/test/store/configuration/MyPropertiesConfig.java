@@ -25,6 +25,10 @@ public class MyPropertiesConfig {
 	
 	@Value("${urlProductsById}")
 	private String urlProductsById;
-
-
+	
+	@Value("${keyJwt}")
+	private String keyJwt;
+	
+	@Value("${tokenDuration}")
+	private Long tokenDuration;
 }

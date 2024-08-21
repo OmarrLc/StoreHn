@@ -19,6 +19,7 @@ import hn.test.store.dto.base.AdditionalFieldItemDto;
 import hn.test.store.dto.base.GeneralResponseDto;
 import hn.test.store.dto.base.ViewProductDto;
 import hn.test.store.dto.exposure.request.customerOrder.PayCustomerOrderRequestItemDto;
+import hn.test.store.dto.exposure.response.authentication.ValidateCredentialResponseItemDto;
 import hn.test.store.dto.exposure.response.customerOrder.CreateCustomerOrderResponseItemDto;
 import hn.test.store.dto.exposure.response.customerOrder.PayCustomerOrderResponseItemDto;
 import hn.test.store.dto.exposure.response.customerOrder.ViewCustomerOrderDetailResponseItemDto;
@@ -114,6 +115,11 @@ public class Utility {
 	public CustomerEntity customerValidation(Long customerId) {
 
 		return custumerRepo.findById(customerId).orElse(null);
+	}
+	
+	public CustomerEntity customerValidationByName(String customerName) {
+
+		return custumerRepo.findByCustomerName(customerName).orElse(null);
 	}
 
 	public Long addCustomerOrder(Long customerId) {
@@ -233,5 +239,26 @@ public class Utility {
 				.registerDate(LocalDate.now().toString()).registerTime(LocalTime.now().toString())
 				.statusRegister("ACTIVE").build());
 	}
+
+	public void customerLoad() {
+
+		custumerRepo.save(
+				CustomerEntity.builder().customerId(1L).customerName("TEST1").registerDate(LocalDate.now().toString())
+						.registerTime(LocalTime.now().toString()).statusRegister("ACTIVE").build());
+		custumerRepo.save(
+				CustomerEntity.builder().customerId(2L).customerName("TEST2").registerDate(LocalDate.now().toString())
+						.registerTime(LocalTime.now().toString()).statusRegister("ACTIVE").build());
+	}
 	
+	public ValidateCredentialResponseItemDto mapValidateCredential(Long customerId, String customerName, String token) {
+		
+		return ValidateCredentialResponseItemDto.builder()
+				.customerId(customerId)
+				.customerName(customerName)
+				.token(token)
+				.additionalFieldColection(Arrays.asList(new AdditionalFieldItemDto(1, "KEY", "VALUE")))
+				.build();
+	}
+	
+
 }
